@@ -208,9 +208,7 @@ namespace WICMetadataDemo
 			{
 				object value = ifd.GetQuery(tag);
 
-				BitmapMetadata ifdSub = value as BitmapMetadata;
-
-				if (ifdSub != null)
+				if (value is BitmapMetadata ifdSub)
 				{
 					CopySubIFDRecursive(ref parent, ifdSub, query + tag);
 				}
@@ -290,8 +288,7 @@ namespace WICMetadataDemo
 
 				if (dec.Frames.Count == 1)
 				{
-					BitmapMetadata meta = dec.Frames[0].Metadata as BitmapMetadata;
-					if (meta != null)
+					if (dec.Frames[0].Metadata is BitmapMetadata meta)
 					{
 						xmpData = meta.GetQuery("/ifd/xmp") as BitmapMetadata;
 					}
@@ -312,9 +309,7 @@ namespace WICMetadataDemo
 				{
 					if (format == "png")
 					{
-						BitmapMetadata textChunk = metadata.GetQuery("/iTXt") as BitmapMetadata;
-
-						if (textChunk != null)
+						if (metadata.GetQuery("/iTXt") is BitmapMetadata textChunk)
 						{
 							string keyword = textChunk.GetQuery("/Keyword") as string;
 
@@ -448,9 +443,7 @@ namespace WICMetadataDemo
 					{
 						object value = exif.GetQuery(tag);
 
-						BitmapMetadata exifSub = value as BitmapMetadata;
-
-						if (exifSub != null)
+						if (value is BitmapMetadata exifSub)
 						{
 							CopySubIFDRecursive(ref tiffMetadata, exifSub, "/ifd/exif" + tag);
 						}
@@ -469,9 +462,7 @@ namespace WICMetadataDemo
 					{
 						object value = xmp.GetQuery(tag);
 
-						BitmapMetadata xmpSub = value as BitmapMetadata;
-
-						if (xmpSub != null)
+						if (value is BitmapMetadata xmpSub)
 						{
 							CopySubIFDRecursive(ref tiffMetadata, xmpSub, "/ifd/xmp" + tag);
 						}
@@ -490,9 +481,7 @@ namespace WICMetadataDemo
 					{
 						object value = iptc.GetQuery(tag);
 
-						BitmapMetadata iptcSub = value as BitmapMetadata;
-
-						if (iptcSub != null)
+						if (value is BitmapMetadata iptcSub)
 						{
 							CopySubIFDRecursive(ref tiffMetadata, iptcSub, "/ifd/iptc" + tag);
 						}
@@ -530,9 +519,7 @@ namespace WICMetadataDemo
 				{
 					object value = exif.GetQuery(tag);
 
-					BitmapMetadata exifSub = value as BitmapMetadata;
-
-					if (exifSub != null)
+					if (value is BitmapMetadata exifSub)
 					{
 						CopySubIFDRecursive(ref jpegMetadata, exifSub, "/app1/ifd/exif" + tag);
 					}
@@ -551,9 +538,7 @@ namespace WICMetadataDemo
 				{
 					object value = xmp.GetQuery(tag);
 
-					BitmapMetadata xmpSub = value as BitmapMetadata;
-
-					if (xmpSub != null)
+					if (value is BitmapMetadata xmpSub)
 					{
 						CopySubIFDRecursive(ref jpegMetadata, xmpSub, "/xmp" + tag);
 					}
@@ -572,9 +557,7 @@ namespace WICMetadataDemo
 				{
 					object value = iptc.GetQuery(tag);
 
-					BitmapMetadata iptcSub = value as BitmapMetadata;
-
-					if (iptcSub != null)
+					if (value is BitmapMetadata iptcSub)
 					{
 						CopySubIFDRecursive(ref jpegMetadata, iptcSub, "/app13/irb/8bimiptc/iptc" + tag);
 					}
@@ -597,9 +580,7 @@ namespace WICMetadataDemo
 			{
 				object value = xmp.GetQuery(tag);
 
-				BitmapMetadata xmpSub = value as BitmapMetadata;
-
-				if (xmpSub != null)
+				if (value is BitmapMetadata xmpSub)
 				{
 					CopySubIFDRecursive(ref tiffMetaData, xmpSub, "/ifd/xmp" + tag);
 				}
@@ -672,9 +653,7 @@ namespace WICMetadataDemo
 				{
 					object value = exif.GetQuery(tag);
 
-					BitmapMetadata exifSub = value as BitmapMetadata;
-
-					if (exifSub != null)
+					if (value is BitmapMetadata exifSub)
 					{
 						CopySubIFDRecursive(ref wmpMetadata, exifSub, "/ifd/exif" + tag);
 					}
@@ -693,9 +672,7 @@ namespace WICMetadataDemo
 				{
 					object value = xmp.GetQuery(tag);
 
-					BitmapMetadata xmpSub = value as BitmapMetadata;
-
-					if (xmpSub != null)
+					if (value is BitmapMetadata xmpSub)
 					{
 						CopySubIFDRecursive(ref wmpMetadata, xmpSub, "/ifd/xmp" + tag);
 					}
@@ -714,9 +691,7 @@ namespace WICMetadataDemo
 				{
 					object value = iptc.GetQuery(tag);
 
-					BitmapMetadata iptcSub = value as BitmapMetadata;
-
-					if (iptcSub != null)
+					if (value is BitmapMetadata iptcSub)
 					{
 						CopySubIFDRecursive(ref wmpMetadata, iptcSub, "/ifd/iptc" + tag);
 					}
