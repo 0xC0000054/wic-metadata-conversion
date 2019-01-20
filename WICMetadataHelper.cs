@@ -67,7 +67,14 @@ namespace WICMetadataDemo
 
 			if (exif != null)
 			{
-				comment = exif.GetQuery("/{ushort=37510}") as string;
+				try
+				{
+					comment = exif.GetQuery("/{ushort=37510}") as string;
+				}
+				catch (IOException)
+				{
+					// WINCODEC_ERR_INVALIDQUERYREQUEST
+				}
 			}
 
 			return comment;
@@ -105,7 +112,14 @@ namespace WICMetadataDemo
 
 			if (xmp != null)
 			{
-				description = xmp.GetQuery("/dc:description/x-default") as string;
+				try
+				{
+					description = xmp.GetQuery("/dc:description/x-default") as string;
+				}
+				catch (IOException)
+				{
+					// WINCODEC_ERR_INVALIDQUERYREQUEST
+				}
 			}
 
 			return description;
